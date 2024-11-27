@@ -1,0 +1,172 @@
+# Copyright (c) 2023 salesforce.com inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+model:
+  arch: blip2_vicuna_xinstruct
+  model_type: vicuna7b
+  load_pretrained: False
+  pretrained: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained.pth
+  load_finetuned: False
+  finetuned: ""
+  stage1_url_or_filename: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained.pth
+  image_model: "eva_clip_g"
+  pc_model: "ulip2_pointbert"
+  video_model: "eva_clip_g"
+  audio_model: "beats"
+  depth_model: "eva_clip_g"
+  pretrained_image_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/audio2depth/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_after_audio_training_in_domain/checkpoint_35000.pth
+  pretrained_pc_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/audio2depth/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_after_audio_training_in_domain/checkpoint_35000.pth
+  pretrained_video_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/audio2depth/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_after_audio_training_in_domain/checkpoint_35000.pth
+  pretrained_audio_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/audio2depth/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_after_audio_training_in_domain/checkpoint_35000.pth
+  pretrained_depth_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/audio2depth/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_after_audio_training_in_domain/checkpoint_35000.pth
+  load_attention_image_qformer: True
+  load_attention_pc_qformer: True
+  load_attention_video_qformer: True
+  load_attention_audio_qformer: True
+  load_attention_depth_qformer: True
+  load_ln_type_image: "depth"
+  load_ln_type_video: "depth"
+  load_ln_type_pc: "depth"
+  load_ln_type_audio: "depth"
+  load_ln_type_depth: "depth"
+  load_qformer_type_image: "depth"
+  load_qformer_type_pc: "depth"
+  load_qformer_type_video: "depth"
+  load_qformer_type_audio: "depth"
+  load_qformer_type_depth: "depth"
+  load_projection_image: True
+  load_projection_pc: True
+  load_projection_video: True
+  load_projection_audio: True
+  load_projection_depth: True
+  load_projection_type_image: "depth"
+  load_projection_type_pc: "depth"
+  load_projection_type_video: "depth"
+  load_projection_type_audio: "depth"
+  load_projection_type_depth: "depth"
+  image_encoder_kwargs: {"image_size": 224, "drop_path_rate": 0, "use_grad_checkpoint": False}
+  pc_encoder_kwargs: {}
+  video_encoder_kwargs: {"image_size": 224, "drop_path_rate": 0, "use_grad_checkpoint": False}
+  depth_encoder_kwargs: {"image_size": 224, "drop_path_rate": 0, "use_grad_checkpoint": False}
+  audio_encoder_kwargs: {}
+  image_precision: "fp16"
+  pc_precision: "fp16"
+  video_precision: "fp16"
+  audio_precision: "fp16"
+  depth_precision: "fp16"
+  freeze_image: True
+  freeze_pc: True
+  freeze_video: True
+  freeze_audio: True
+  freeze_depth: True
+  num_query_token: 32
+  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  prompt: "describe the 3d model."
+  max_txt_len: 128
+  max_output_txt_len: 256
+  apply_lemmatizer: False
+  num_few_shot_examples: 0
+  few_shot_prob: 0
+  qformer_text_input: True
+  llm_text_input: True
+  modalities: ["pc"]
+  use_cues: True
+  shared_qformer: False
+  pretrained_shared_qformer: Null
+  load_attention_shared_qformer: False
+  load_qformer_type_shared: ""
+  load_projection_shared: False
+  load_projection_type_shaped: ""
+  load_ln_type_shared: ""
+  shared_qformer_num_features: 512
+  prefix: ""
+  postfix: ""
+  predict_with_gen: False
+  freeze_qformer_LLM: True
+  adapter_for_finetune: True
+  lora_bottleneck: 8
+  use_mlp: False
+  mlp_type: base
+datasets:
+  objaverse_mm_caption_instruct: # 651576 train examples
+    vis_processor:
+      train:
+        name: "clip_image_train"
+        image_size: 224
+      eval:
+        name: "clip_image_train"
+        image_size: 224
+    pc_processor:
+      train:
+        name: "ulip_pc"
+      eval:
+        name: "ulip_pc"
+    text_processor:
+      train:
+        name: "blip_instruction"
+        modality: pc
+        task: caption
+      eval:
+        name: "blip_caption"
+        prompt: describe the 3d model.
+    data_type: [pc] # [images|pc]
+  objaverse_mm_qa: # name of the dataset builder 250070
+    vis_processor:
+      train:
+        name: "clip_image_train"
+        image_size: 224
+      eval:
+        name: "clip_image_train"
+        image_size: 224
+    pc_processor:
+      train:
+        name: "ulip_pc"
+      eval:
+        name: "ulip_pc"
+    text_processor:
+      train:
+        name: "blip_instruction"
+        modality: pc
+        task: qa
+      eval:
+        name: "blip_question"
+    data_type: pc # [images|pc]
+run:
+  runner: runner_iter
+  task: captioning
+  # optimizer
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 1e-5
+  min_lr: 0
+  warmup_lr: 1e-8
+  warmup_steps: 1000
+  weight_decay: 0.05
+  max_epoch: 40
+  batch_size_train: 32
+  batch_size_eval: 16
+  num_workers: 8
+  accum_grad_iters: 1
+  max_iters: 65000
+  iters_per_inner_epoch: 5000
+  train_dataset_ratios: {"objaverse_mm_caption_instruct": 0.6174707510524334, "objaverse_mm_qa": 0.38252924894756646}
+  caption_key: 'data'
+  sample_id_key: sample_id
+  max_len: 30
+  min_len: 8
+  num_beams: 5
+  seed: 42
+  output_dir: output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training
+  amp: True
+  resume_ckpt_path: null
+  evaluate: False
+  train_splits: ["train"]
+  # valid_splits: ["val"]
+
+  device: "cuda"
+  world_size: 1
+  dist_url: "env://"
+  distributed: True
+  save_freq: 1 # save epoch every xxx epochs -1 only save last and best. 
+  val_freq: 1
