@@ -1,23 +1,23 @@
 # PathWeave
-Code for paper "LLMs Can Evolve Continually on Modality for **X**-Modal Reasoning" NeurIPS2024
+Code for paper "LLMs Can Evolve Continually on Modality for **X**-Modal Reasoning" NeurIPS2024🎉
 
 ## Table of Contents
   - [Abstract](#Abstract)
   - [Approach](#Approach)
   - [Getting Started](#Getting-started)
-    - [Data Processing(depth)](#Data Processing(depth))
+    - [Data Processing(depth)](#Data-Processing(depth))
     - [Model ckpt](#Model-ckpt)
     - [Test](#Test)
     - [Train](#Train)
   - [Citation](#Citation)
   - [Acknowledgement](#Acknowledgement)
 
-
+___
 - [X] Train&Test
 - [X] Data Processing
 - [X] Checkpoints
 ## Abstract
-Multimodal Large Language Models (MLLMs) have gained significant attention due to their impressive capabilities in multimodal understanding. However, existing methods rely heavily on extensive modal-specific pretraining and joint-modal tuning, leading to significant computational burdens when expanding to new modalities. In this paper, we propose \textbf{PathWeave}, a flexible and scalable framework with modal-\textbf{path} s\textbf{w}itching and \textbf{e}xp\textbf{a}nsion abilities that enables MLLMs to continually \textbf{ev}olve on modalities for $\mathbb{X}$-modal reasoning. We leverage the concept of Continual Learning and develop an incremental training strategy atop pre-trained MLLMs, enabling their expansion to new modalities using uni-modal data, without executing joint-modal pretraining. In detail, a novel Adapter-in-Adapter (AnA) framework is introduced, in which uni-modal and cross-modal adapters are seamlessly integrated to facilitate efficient modality alignment and collaboration. Additionally, an MoE-based gating module is applied between two types of adapters to further enhance the multimodal interaction. To investigate the proposed method, we establish a challenging benchmark called \textbf{C}ontinual \textbf{L}earning of \textbf{M}odality (MCL), which consists of high-quality QA data from five distinct modalities: image, video, \textcolor{black}{audio, depth} and point cloud. Extensive experiments demonstrate the effectiveness of the proposed AnA framework on learning plasticity and memory stability during continual learning. Furthermore, PathWeave performs comparably to state-of-the-art MLLMs while concurrently reducing parameter training burdens by 98.73\%.
+Multimodal Large Language Models (MLLMs) have gained significant attention due to their impressive capabilities in multimodal understanding. However, existing methods rely heavily on extensive modal-specific pretraining and joint-modal tuning, leading to significant computational burdens when expanding to new modalities. In this paper, we propose **PathWeave**, a flexible and scalable framework with modal-path switching and expansion abilities that enables MLLMs to continually evolve on modalities for X-modal reasoning. We leverage the concept of Continual Learning and develop an incremental training strategy atop pre-trained MLLMs, enabling their expansion to new modalities using uni-modal data, without executing joint-modal pretraining. In detail, a novel Adapter-in-Adapter (AnA) framework is introduced, in which uni-modal and cross-modal adapters are seamlessly integrated to facilitate efficient modality alignment and collaboration. Additionally, an MoE-based gating module is applied between two types of adapters to further enhance the multimodal interaction. To investigate the proposed method, we establish a challenging benchmark called Continual Learning of Modality (MCL), which consists of high-quality QA data from five distinct modalities: image, video, \textcolor{black}{audio, depth} and point cloud. Extensive experiments demonstrate the effectiveness of the proposed AnA framework on learning plasticity and memory stability during continual learning. Furthermore, PathWeave performs comparably to state-of-the-art MLLMs while concurrently reducing parameter training burdens by 98.73\%.
 
 ## Approach
 ___
@@ -57,8 +57,8 @@ Our depth data are generated follow the instruction of [OneLLM](https://github.c
 
 
 
-### [Model-ckpt](https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link)
-
+### Model-ckpt
+[Google Drive](https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link)
 ### Test
 Example:
 
