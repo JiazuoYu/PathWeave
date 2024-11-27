@@ -1,5 +1,5 @@
 # PathWeave
-Code for paper "LLMs Can Evolve Continually on Modality for **X**-Modal Reasoning" NeurIPS2024🎉
+Code for paper "[LLMs Can Evolve Continually on Modality for **X**-Modal Reasoning](https://arxiv.org/pdf/2410.20178)" NeurIPS2024🎉
 
 ## Table of Contents
   - [Abstract](#Abstract)
