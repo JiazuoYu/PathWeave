@@ -35,7 +35,7 @@ from lavis.tasks import *
 def parse_args():
     parser = argparse.ArgumentParser(description="Training")
 
-    parser.add_argument("--cfg-path", default="/15324359926/Multimodal/03_adapter_in_adapter/LAVIS/lavis/projects/xinstruct_blip/train/vicuna7b/adapter_in_adapter_audio_training.yaml", help="path to configuration file.")
+    parser.add_argument("--cfg-path", default="/lavis/projects/xinstruct_blip/train/vicuna7b/adapter_in_adapter_audio_training.yaml", help="path to configuration file.")
     parser.add_argument(
         "--options",
         nargs="+",

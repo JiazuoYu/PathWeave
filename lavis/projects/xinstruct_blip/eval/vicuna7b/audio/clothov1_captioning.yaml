@@ -23,7 +23,7 @@ model:
   pretrained_image_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/image_qformer.pth
   pretrained_pc_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/pc_qformer.pth
   pretrained_video_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/video_qformer.pth
-  pretrained_audio_qformer: /15324359926/Multimodal/01_Fixed_Lavis/LAVIS/lavis/output/xinstructblip/train/vicuna7b/3D/audio_original/checkpoint_65000.pth
+  pretrained_audio_qformer: /path_to_your_data/checkpoint_65000.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
@@ -57,7 +57,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "a short description."
   max_txt_len: 128
   max_output_txt_len: 256
@@ -108,7 +108,7 @@ datasets:
           storage: 
             - /clotho/clotho_captions_evaluation.csv
       audio:
-        storage: /15324359926/yjz/test_dataset/test_set/clotho
+        storage: /path_to_your_data/clotho
 
 run:
   task: captioning

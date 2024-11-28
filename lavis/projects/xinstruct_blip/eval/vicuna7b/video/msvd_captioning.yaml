@@ -18,12 +18,12 @@ model:
   freeze_qformer_LLM: True
   # 自定义
   Evaluate_stage: True
-  special_module_path: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim64_all_layer/checkpoint_15000.pth # 必填 与Evaluate_stage一起
+  special_module_path: /path_to_your_data/checkpoint_15000.pth # 必填 与Evaluate_stage一起
   special_module_type: "video" # 必填 与Evaluate_stage一起
   adapter_for_finetune: True
   pretrained_image_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/image_qformer.pth
   pretrained_pc_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/pc_qformer.pth
-  pretrained_video_qformer: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim64_all_layer/checkpoint_15000.pth
+  pretrained_video_qformer: /path_to_your_data/checkpoint_15000.pth
   pretrained_audio_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/audio_qformer.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
@@ -58,7 +58,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "a short description."
   max_txt_len: 128
   max_output_txt_len: 256
@@ -107,17 +107,17 @@ datasets:
       annotations:
         train:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msvd/cap_train.json
-          storage: /15324359926/Multimodal/datasets_multimodal/msvd/annotations/cap_train.json
+          storage: /path_to_your_data/msvd/annotations/cap_train.json
         val:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msvd/cap_val.json
-          storage: /15324359926/Multimodal/datasets_multimodal/msvd/annotations/cap_val.json
+          storage: /path_to_your_data/annotations/cap_val.json
         test:
           # video f9_bP219ehQ_63_70.avi is corrupt
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msvd/cap_test.json
-          storage: /15324359926/Multimodal/datasets_multimodal/msvd/annotations/cap_test.json
+          storage: /path_to_your_data/msvd/annotations/cap_test.json
       videos:
         # storage: msvd/videos
-        storage: /15324359926/Multimodal/datasets_multimodal/msvd/YouTubeClips
+        storage: /path_to_your_data/msvd/YouTubeClips
 
 
 run:

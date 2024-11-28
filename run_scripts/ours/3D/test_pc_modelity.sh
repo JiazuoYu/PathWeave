@@ -2,19 +2,19 @@
 source ~/anaconda3/etc/profile.d/conda.sh
 conda env list
 conda activate /opt/conda/envs/lavis
-cp /15324359926/Multimodal/hm_repo/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0.jar /opt/conda/envs/lavis/lib/python3.8/site-packages/pycocoevalcap/spice/lib
-cp /15324359926/Multimodal/hm_repo/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0-models.jar /opt/conda/envs/lavis/lib/python3.8/site-packages/pycocoevalcap/spice/lib
+cp /path_to_your_data/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0.jar /opt/conda/envs/lavis/lib/python3.8/site-packages/pycocoevalcap/spice/lib
+cp /path_to_your_data/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0-models.jar /opt/conda/envs/lavis/lib/python3.8/site-packages/pycocoevalcap/spice/lib
 set -v
 set -e
 set -x
 
 #################### pc    modality #####################
-work_path=/15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc
-cd /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc
-modelnet_cls=/15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/modelnet40_classification_adapter.yaml
-modelnet_ccompletion=/15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/modelnet40_completion_adapter.yaml
-cap3d_qa=/15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/objaverse_qa_adapter.yaml
-cap3d_caption=/15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/objaverse_captioning_adapter.yaml
+work_path=/path_to_your_data/03_adapter_in_adapter/depth2pc
+cd /path_to_your_data/03_adapter_in_adapter/depth2pc
+modelnet_cls=/path_to_your_data/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/modelnet40_classification_adapter.yaml
+modelnet_ccompletion=/path_to_your_data/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/modelnet40_completion_adapter.yaml
+cap3d_qa=/path_to_your_data/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/objaverse_qa_adapter.yaml
+cap3d_caption=/path_to_your_data/03_adapter_in_adapter/depth2pc/lavis/projects/xinstruct_blip/eval/vicuna7b/pc/objaverse_captioning_adapter.yaml
 
 # test pc modelnet_cls
 test_dataset_name=modelnet_cls

@@ -49,4 +49,4 @@ datasets:
         #     - /export/einstein-vision/audio_datasets/audiocaps/dataset/test.csv
             
       audio:
-        storage: /15324359926/yjz/audiocaps/audiocaps/rename_train
+        storage: /path_to_your_data/audiocaps/audiocaps/rename_train

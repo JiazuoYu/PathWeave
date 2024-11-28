@@ -35,8 +35,8 @@ datasets:
               - https://storage.googleapis.com/sfr-xinstructblip-data-research/data/objaverse/cap3d_cap_final_train.csv
               # - /export/einstein-vision/3d_vision/objaverse_captions/objaverse_blip_captions_train.json
             storage:
-#              - /15324359926/Multimodal/测评demo/trained_3d_ours.csv # 656686
-             - /15324359926/Multimodal/测试代码/cap3d_cap_final_train.csv # 637496
+#              - /data/Multimodal/testdemo/trained_3d_ours.csv # 656686
+             - /path_to_your_data/Multimodal/testcode/cap3d_cap_final_train.csv # 637496
 
           # val:
           #   url:
@@ -49,7 +49,7 @@ datasets:
         templates: null
 
         pc:
-          storage: /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/objaverse_pc_parallel/pc_data
+          storage: /path_to_your_data/Multimodal/datasets_multimodal/3D/Cap3D/objaverse_pc_parallel/pc_data
         
         images:
           storage: /export/einstein-vision/3d_vision/objaverse_captions/images/

@@ -17,14 +17,12 @@ model:
   audio_model: "beats"
   pretrained_image_qformer:
   pretrained_pc_qformer:
-  pretrained_video_qformer: /15324359926/Multimodal/0309-LAVIS-XInstructBLIP/官方checkpoint/image_qformer.pth
+  pretrained_video_qformer: /path_to_your_data/image_qformer.pth
   pretrained_audio_qformer:
-  # 是否加载qformer的attention
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
   load_attention_audio_qformer: True
-  # ToDo：加入下载ln层的路径
   load_ln_type_image: ""
   load_ln_type_video: "image"
   load_ln_type_pc: ""
@@ -54,7 +52,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "describe the video."
   max_txt_len: 128
   max_output_txt_len: 256

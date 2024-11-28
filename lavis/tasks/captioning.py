@@ -92,9 +92,9 @@ class CaptionTask(BaseTask):
         if 'depth' in val_ds_name :
             self.dataset_mode = datasets[val_ds_name]['val'].mode
             if self.dataset_mode == 'cc3m':
-                self.annotation_file = '/15324359926/Multimodal/hm_repo/CC3M_Split/CC3M_val_1_5k_coco.json'
+                self.annotation_file = '/path_to_your_data/CC3M_Split/CC3M_val_1_5k_coco.json'
             elif self.dataset_mode == 'llava':
-                self.annotation_file = '/15324359926/Multimodal/hm_repo/process_llava150k/llava_instruct_1dot5k_test_data_coco.json'
+                self.annotation_file = '/path_to_your_data/process_llava150k/llava_instruct_1dot5k_test_data_coco.json'
                 
         # get question file, annotation file and anwser list in COCO format
         if self.annotation_file == None:

@@ -57,7 +57,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "a short description."
   max_txt_len: 128
   max_output_txt_len: 256

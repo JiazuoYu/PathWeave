@@ -18,7 +18,7 @@ model:
 
   # 自定义
   Evaluate_stage: True
-  special_module_path: /15324359926/Multimodal/测评demo/image_qformer.pth # 必填 与Evaluate_stage一起
+  special_module_path: /path_to_your_data/image_qformer.pth # 必填 与Evaluate_stage一起
   special_module_type: "image" # 必填 与Evaluate_stage一起
   adapter_for_finetune: False
   pretrained_image_qformer: https://storage.googleapis.com/sfr-xinstructblip-data-research/model/xinstructblip_checkpoints/vicuna7b/image_qformer.pth
@@ -58,7 +58,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "a short description."
   max_txt_len: 128
   max_output_txt_len: 256
@@ -113,15 +113,15 @@ datasets:
       annotations:
         train:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/cap_train.json
-          storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/annotations/cap_train.json
+          storage: /path_to_your_data/MSRVTT/annotations/cap_train.json
         val:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/cap_val.json
-          storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/annotations/cap_val.json
+          storage: /path_to_your_data/MSRVTT/annotations/cap_val.json
         test:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/cap_test.json
-          storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/annotations/cap_test.json
+          storage: /path_to_your_data/MSRVTT/annotations/cap_test.json
       videos:
-        storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/TrainValVideo
+        storage: /path_to_your_data/MSRVTT/TrainValVideo
 
 
 run:

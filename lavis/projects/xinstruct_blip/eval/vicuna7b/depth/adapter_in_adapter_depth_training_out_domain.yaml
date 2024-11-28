@@ -16,11 +16,11 @@ model:
   video_model: "eva_clip_g"
   audio_model: "beats"
   depth_model: "eva_clip_g"
-  pretrained_image_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
-  pretrained_pc_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
-  pretrained_video_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
-  pretrained_audio_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
-  pretrained_depth_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
+  pretrained_image_qformer: /path_to_your_data/checkpoint_35000.pth
+  pretrained_pc_qformer: /path_to_your_data/checkpoint_35000.pth
+  pretrained_video_qformer: /path_to_your_data/checkpoint_35000.pth
+  pretrained_audio_qformer: /path_to_your_data/checkpoint_35000.pth
+  pretrained_depth_qformer: /path_to_your_data/checkpoint_35000.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
@@ -62,7 +62,7 @@ model:
   freeze_audio: True
   freeze_depth: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "describe the depth."
   max_txt_len: 128
   max_output_txt_len: 256
@@ -87,7 +87,7 @@ model:
   freeze_qformer_LLM: True
   adapter_for_finetune: True
   lora_bottleneck: 8
-  special_module_path: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/LAVIS/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_depth_training_in_domain/checkpoint_35000.pth
+  special_module_path: /path_to_your_data/checkpoint_35000.pth
   special_module_type: depth
   use_mlp: False
 datasets:
@@ -120,9 +120,9 @@ datasets:
       annotations:
         val:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/qa_val.json
-          storage: /15324359926/Multimodal/hm_repo/SUNRGBD/SUN-RGBD_val.json
-          # /15324359926/Multimodal/hm_repo/SUNRGBD/SUN-RGBD_val.json
-          # /15324359926/Multimodal/hm_repo/SUNRGBD/NYU-Depth-v2_val.json
+          storage: /path_to_your_data/SUNRGBD/SUN-RGBD_val.json
+          # /path_to_your_data/SUNRGBD/SUN-RGBD_val.json
+          # /path_to_your_data/SUNRGBD/NYU-Depth-v2_val.json
 run:
   runner: runner_iter
   task: multimodal_classification # multimodal_classification captioning

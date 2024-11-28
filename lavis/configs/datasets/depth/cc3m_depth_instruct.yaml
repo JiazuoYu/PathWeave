@@ -32,10 +32,10 @@ datasets:
       annotations:
         train:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/cap_train.json
-          storage: /15324359926/Multimodal/hm_repo/CC3M_Split/CC3M_train_50w_clear.json
+          storage: /path_to_your_data/CC3M_Split/CC3M_train_50w_clear.json
         val:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/qa_val.json
-          storage: /15324359926/Multimodal/hm_repo/SUNRGBD/NYU-Depth-v2_val.json
+          storage: /path_to_your_data/SUNRGBD/NYU-Depth-v2_val.json
 
       videos:
-        storage: /15324359926/Multimodal/hm_repo/CC3M/all_train
+        storage: /path_to_your_data/CC3M/all_train

@@ -37,10 +37,10 @@ datasets:
       annotations:
         train:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/qa_train.json
-          storage: /15324359926/Multimodal/hm_repo/process_llava150k/llava_instruct_50k_train_data.json
+          storage: path_to_your_data/process_llava150k/llava_instruct_50k_train_data.json
         val:
           url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/qa_val.json
-          storage: /15324359926/Multimodal/hm_repo/SUNRGBD/SUN-RGBD_val.json
+          storage: /path_to_your_data/SUNRGBD/SUN-RGBD_val.json
 #        test:
 #          url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/qa_test.json
 #          storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/annotations/qa_test.json
@@ -48,4 +48,4 @@ datasets:
         #   url: https://storage.googleapis.com/sfr-vision-language-research/LAVIS/datasets/msrvtt/train_ans2label.json
         #   storage: /15324359926/Multimodal/datasets_multimodal/MSRVTT/annotations/qa_ans2label.json
       videos:
-        storage: /15324359926/Multimodal/datasets_multimodal/data/coco/train2017
+        storage: /path_to_your_data/data/coco/train2017

@@ -18,12 +18,12 @@ model:
   Evaluate_stage: True
   adapter_for_finetune: True
   freeze_qformer_LLM: True
-  special_module_path: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training/checkpoint_65000.pth
+  special_module_path: /path_to_your_data/checkpoint_65000.pth
   special_module_type: pc # 必填 与Evaluate_stage一起
-  pretrained_image_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training/checkpoint_65000.pth
-  pretrained_pc_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training/checkpoint_65000.pth
-  pretrained_video_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training/checkpoint_65000.pth
-  pretrained_audio_qformer: /15324359926/Multimodal/hm_repo/03_adapter_in_adapter/depth2pc/lavis/output/xinstructblip/train/vicuna7b/adapter_in_adapter_pc_after_depth_training/checkpoint_65000.pth
+  pretrained_image_qformer: /path_to_your_data/checkpoint_65000.pth
+  pretrained_pc_qformer: /path_to_your_data/checkpoint_65000.pth
+  pretrained_video_qformer: /path_to_your_data/checkpoint_65000.pth
+  pretrained_audio_qformer: /path_to_your_data/checkpoint_65000.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
@@ -57,7 +57,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "describe the 3d model."
   max_txt_len: 128
   max_output_txt_len: 256
@@ -106,7 +106,7 @@ datasets:
             - modelnet40_normal_resampled/modelnet40_test_8192pts_fps.dat
             - modelnet40_normal_resampled/modelnet40_test.txt
       pc:
-        storage: /15324359926/Multimodal/datasets_multimodal/3D/modelnet40
+        storage: /path_to_your_data/modelnet40
       images:
         storage: /export/einstein-vision/3d_vision/3d_object_datasets/modelnet40_pc_img
 run:

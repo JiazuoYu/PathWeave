@@ -15,10 +15,10 @@ model:
   pc_model: "ulip2_pointbert"
   video_model: "eva_clip_g"
   audio_model: "beats"
-  pretrained_image_qformer: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim8_all_layer_learnable_scales/checkpoint_15000.pth
-  pretrained_pc_qformer: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim8_all_layer_learnable_scales/checkpoint_15000.pth
-  pretrained_video_qformer: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim8_all_layer_learnable_scales/checkpoint_15000.pth
-  pretrained_audio_qformer: /15324359926/Multimodal/02_Only_adapter_LAVIS/LAVIS/lavis/output/xinstructblip/train/vicuna7b/video/video_training_frozen_and_adapter_no_relu_neckDim8_all_layer_learnable_scales/checkpoint_15000.pth
+  pretrained_image_qformer: /path_to_your_data/checkpoint_15000.pth
+  pretrained_pc_qformer: /path_to_your_data/checkpoint_15000.pth
+  pretrained_video_qformer: /path_to_your_data/checkpoint_15000.pth
+  pretrained_audio_qformer: /path_to_your_data/checkpoint_15000.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
@@ -52,7 +52,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt:  "describe the audio."
   max_txt_len: 128
   max_output_txt_len: 256

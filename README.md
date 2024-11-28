@@ -1,7 +1,15 @@
 # PathWeave
 Code for paper "[LLMs Can Evolve Continually on Modality for **X**-Modal Reasoning](https://arxiv.org/pdf/2410.20178)" NeurIPS2024🎉
 
-## Table of Contents
+## 🔥 News
+**[2024.11]** 🔥 Release code and checkpoints.
+
+**TODO**:
+- [X] Train&Test code.
+- [X] Data Processing.
+- [X] Checkpoints.
+
+## 💻 Table of Contents
   - [Abstract](#Abstract)
   - [Approach](#Approach)
   - [Getting Started](#Getting-started)
@@ -12,18 +20,14 @@ Code for paper "[LLMs Can Evolve Continually on Modality for **X**-Modal Reasoni
   - [Citation](#Citation)
   - [Acknowledgement](#Acknowledgement)
 
-___
-- [X] Train&Test
-- [X] Data Processing
-- [X] Checkpoints
-## Abstract
-Multimodal Large Language Models (MLLMs) have gained significant attention due to their impressive capabilities in multimodal understanding. However, existing methods rely heavily on extensive modal-specific pretraining and joint-modal tuning, leading to significant computational burdens when expanding to new modalities. In this paper, we propose **PathWeave**, a flexible and scalable framework with modal-path switching and expansion abilities that enables MLLMs to continually evolve on modalities for X-modal reasoning. We leverage the concept of Continual Learning and develop an incremental training strategy atop pre-trained MLLMs, enabling their expansion to new modalities using uni-modal data, without executing joint-modal pretraining. In detail, a novel Adapter-in-Adapter (AnA) framework is introduced, in which uni-modal and cross-modal adapters are seamlessly integrated to facilitate efficient modality alignment and collaboration. Additionally, an MoE-based gating module is applied between two types of adapters to further enhance the multimodal interaction. To investigate the proposed method, we establish a challenging benchmark called Continual Learning of Modality (MCL), which consists of high-quality QA data from five distinct modalities: image, video, \textcolor{black}{audio, depth} and point cloud. Extensive experiments demonstrate the effectiveness of the proposed AnA framework on learning plasticity and memory stability during continual learning. Furthermore, PathWeave performs comparably to state-of-the-art MLLMs while concurrently reducing parameter training burdens by 98.73\%.
+## 📣 Abstract
+Multimodal Large Language Models (MLLMs) have gained significant attention due to their impressive capabilities in multimodal understanding. However, existing methods rely heavily on extensive modal-specific pretraining and joint-modal tuning, leading to significant computational burdens when expanding to new modalities. In this paper, we propose **PathWeave**, a flexible and scalable framework with **modalpath switching and expansion** abilities that enables MLLMs to continually **evolve** on modalities for **X**-modal reasoning. We leverage the concept of Continual Learning and develop an incremental training strategy atop pre-trained MLLMs, enabling their expansion to new modalities using uni-modal data, without executing joint-modal pretraining. In detail, a novel Adapter-in-Adapter (AnA) framework is introduced, in which uni-modal and cross-modal adapters are seamlessly integrated to facilitate efficient modality alignment and collaboration. Additionally, an MoE-based gating module is applied between two types of adapters to further enhance the multimodal interaction. To investigate the proposed method, we establish a challenging benchmark called **Continual Learning of Modality (MCL)**, which consists of high-quality QA data from five distinct modalities: image, video, audio, depth and point cloud. Extensive experiments demonstrate the effectiveness of the proposed AnA framework on learning plasticity and memory stability during continual learning. Furthermore, PathWeave performs comparably to state-of-the-art MLLMs while concurrently reducing parameter training burdens by **98.73\%**.
 
-## Approach
+## 🚩 Approach
 ___
 ![framework.png](docs/_static/framework.png)
 
-## Getting Started
+## 🏃‍♂️ Getting Started
 ### Data Processing
 
 Our depth data are generated follow the instruction of [OneLLM](https://github.com/csuhan/OneLLM/blob/main/docs/Data.md).
@@ -57,19 +61,55 @@ Our depth data are generated follow the instruction of [OneLLM](https://github.c
 
 
 
+
 ### Model-ckpt
-[Google Drive](https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link)
+All checkpoints can be found in [Google Driver]((https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link)).
+
 ### Test
+<details>
+<summary>
+Tips
+</summary>
+
+Before testing, please change the checkpoint path in the following direction:
+
+lavis/projects/xinstruct_blip/train/vicuna7b
+
+Also change the path in:
+
+lavis/projects/xinstruct_blip/eval/vicuna7b
+
+We marked all the path with: "path_to_your_data".
+</details>
+
 Example:
 
 Run the script ```bash run_scripts/ours/video/test_video_modality.sh ```
 ### Train
+<details>
+<summary>
+Tips
+</summary>
+Before training, please check the data direction in the following direction:
+
+lavis/configs/datasets/depth
+
+You also need to change the file diresction in:
+
+lavis/datasets/datasets/depth_vqa_dataset.py
+
+lavis/tasks/captioning.py
+
+We marked all the path with: "path_to_your_data".
+
+</details>
+
 Example:
 
 Run the script ```bash run_scripts/ours/video/train_video_modality.sh ```
 
 - _Note: Need to load the parameters of previous modality for current training._
-## Citation
+## 🌟 Citation
 ```
 @article{yu2024llms,
   title={LLMs Can Evolve Continually on Modality for X-Modal Reasoning},
@@ -78,7 +118,7 @@ Run the script ```bash run_scripts/ours/video/train_video_modality.sh ```
   year={2024}
 }
 ```
-## Acknowledgement
+## 🤗 Acknowledgement
 Our repo is built on [X-InstructBLIP](https://github.com/salesforce/LAVIS/tree/main/projects/xinstructblip) and [OneLLM](https://github.com/csuhan/OneLLM/tree/main).  We thank the authors for sharing their codes.
 
 

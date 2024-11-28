@@ -41,7 +41,7 @@ class __DisplMixin:
 class DepthQADataset(MultimodalClassificationDataset, __DisplMixin):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
-        self.depth_root = '/15324359926/Multimodal/hm_repo/LLaVA_Depth/train'
+        self.depth_root = '/path_to_your_data/LLaVA_Depth/train'
         print('train self.depth_root:{}'.format(self.depth_root))
 
     # def _build_class_labels(self, ans_path):
@@ -151,8 +151,8 @@ class DepthQAInstructDataset(DepthQADataset):
 class DepthQAInstructValDataset(DepthQADataset):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
-        self.depth_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
-        self.vis_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
+        self.depth_root = '/path_to_your_data/SUNRGBD'
+        self.vis_root = '/path_to_your_data/SUNRGBD'
         self.class_labe = ['furniture_store', 'bedroom', 'classroom', 'living_room', 
                       'office', 'study_space', 'corridor', 'bathroom', 'conference_room', 
                       'dining_room', 'home_office', 'kitchen', 'discussion_area', 
@@ -170,28 +170,6 @@ class DepthQAInstructValDataset(DepthQADataset):
         
         ann = self.annotation[index]
 
-        # vname = ann["video"]
-        # image_id = ann['image']
-        # conversations = ann['conversations']
-        # if len(conversations) > 1:
-        #     question_list = []
-        #     answer_list = []
-        #     qa_list = []
-        #     for conv in conversations:
-        #         if conv['from'] == 'human':
-        #             question_list.append(conv['value'].replace('<image>', '').replace('\n',''))
-        #         else:
-        #             answer_list.append(conv['value'])
-            
-        #     for idx, question in enumerate(question_list):
-        #         qa_list.append({'question':question_list[idx], 'answer':answer_list[idx]})
-                 
-        #     conversation = random.choice(qa_list)
-        #     question = conversation['question']
-        #     answer = conversation['answer']
-        # else:
-        #     question = conversation[0]['value']
-        #     answer = conversation[1]['value']
         image_path = ann['image_path']
         label = ann['label']
         label_index = self.classnames.index(label) # return the index of label
@@ -225,7 +203,7 @@ class DepthCaptionDataset(CaptionDataset):
         split (string): val or test
         """
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
-        self.depth_root = '/15324359926/Multimodal/hm_repo/CC3M_Depth/train'
+        self.depth_root = '/path_to_your_data/CC3M_Depth/train'
         print('caption train self.depth_root:{}'.format(self.depth_root))
         depth_set = set(os.listdir(self.depth_root))
         self.clear_annotations  = []
@@ -273,8 +251,8 @@ class DepthCaptionEvalDataset(BaseDataset):
         split (string): val or test
         """
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
-        self.depth_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
-        self.vis_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
+        self.depth_root = '/path_to_your_data/SUNRGBD'
+        self.vis_root = '/path_to_your_data/SUNRGBD'
         self.class_labe = ['kitchen', 'office', 'bathroom', 'bedroom', 
                            'bookstore', 'living_room', 'study_space', 
                            'classroom', 'computer_room', 'lobby', 'home_office', 
@@ -333,35 +311,14 @@ class DepthCaptionInstructDataset(DepthCaptionDataset):
 class DepthCaptionandQAInstructDataset(DepthQADataset):
     def __init__(self, vis_processor, text_processor, vis_root, ann_paths):
         super().__init__(vis_processor, text_processor, vis_root, ann_paths)
-        self.llava_depth_root = '/15324359926/Multimodal/hm_repo/LLaVA_Depth/train'
-        self.llava_image_root = '/15324359926/Multimodal/datasets_multimodal/data/coco/train2017'
-        self.cc3m_depth_root = '/15324359926/Multimodal/hm_repo/CC3M_Depth/train'
-        self.cc3m_image_root = '/15324359926/Multimodal/hm_repo/CC3M/train'
+        self.llava_depth_root = '/path_to_your_data/LLaVA_Depth/train'
+        self.llava_image_root = '/path_to_your_data/data/coco/train2017'
+        self.cc3m_depth_root = '/path_to_your_data/CC3M_Depth/train'
+        self.cc3m_image_root = '/path_to_your_data/CC3M/train'
         print('train self.image_root:{} and {}'.format(self.llava_image_root, self.cc3m_image_root))
         print('train self.depth_root:{} and {}'.format(self.llava_depth_root, self.cc3m_depth_root))
         
         print('Using Cleared Dataset for training !!')
-        # print('Reading Depth Set in for data !!')
-        # with open('/15324359926/Multimodal/hm_repo/CC3M_Split/training_depth_50w.json') as f:
-        #     cc3m_depth_set = json.load(f)
-        # # cc3m_depth_set = set(os.listdir(self.cc3m_depth_root))
-        # self.clear_annotations  = []
-        # print("clear data... ") # 该部分的数据预处理消耗时间有点久，需要去除掉
-        # for data in self.annotation:
-        #     if data['source'] == 'cc3m':
-        #         image_id = data["image_id"]
-        #         depth_id = image_id.replace(".jpg", ".png")
-        #         # depth_path = os.path.join(self.depth_root, depth_id)
-        #         if depth_id in cc3m_depth_set:
-        #             self.clear_annotations.append(data)
-        #         else:
-        #             continue
-        #     else:
-        #         self.clear_annotations.append(data)
-        # print('data cleared :{} !!'.format(len(self.clear_annotations)))
-        
-        # # print('')
-        # self.annotation = self.clear_annotations
         
     def __getitem__(self, index):
         
@@ -444,8 +401,8 @@ class DepthCaptionandQAInstructValDataset(DepthQADataset):
             
         assert self.mode != None, dataset_name
         
-        self.depth_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
-        self.vis_root = '/15324359926/Multimodal/hm_repo/SUNRGBD'
+        self.depth_root = '/path_to_your_data/SUNRGBD'
+        self.vis_root = '/path_to_your_data/SUNRGBD'
         
         if self.mode == 'sun':
             self.class_labe = ['furniture_store', 'bedroom', 'classroom', 'living_room', 
@@ -479,28 +436,6 @@ class DepthCaptionandQAInstructValDataset(DepthQADataset):
         
         ann = self.annotation[index]
 
-        # vname = ann["video"]
-        # image_id = ann['image']
-        # conversations = ann['conversations']
-        # if len(conversations) > 1:
-        #     question_list = []
-        #     answer_list = []
-        #     qa_list = []
-        #     for conv in conversations:
-        #         if conv['from'] == 'human':
-        #             question_list.append(conv['value'].replace('<image>', '').replace('\n',''))
-        #         else:
-        #             answer_list.append(conv['value'])
-            
-        #     for idx, question in enumerate(question_list):
-        #         qa_list.append({'question':question_list[idx], 'answer':answer_list[idx]})
-                 
-        #     conversation = random.choice(qa_list)
-        #     question = conversation['question']
-        #     answer = conversation['answer']
-        # else:
-        #     question = conversation[0]['value']
-        #     answer = conversation[1]['value']
         image_path = ann['image_path']
         label = ann['label']
         # label_index = self.classnames.index(label) # return the index of label
@@ -546,10 +481,10 @@ class DepthCaptionandQAInstructValDataset_In_Domain(DepthQADataset):
             
         assert self.mode != None, print(dataset_name)
         
-        self.llava_depth_root = '/15324359926/Multimodal/hm_repo/LLaVA_Depth/val'
-        self.llava_image_root = '/15324359926/Multimodal/hm_repo/LLaVA_Split/val'
-        self.cc3m_depth_root = '/15324359926/Multimodal/hm_repo/CC3M_Depth/val'
-        self.cc3m_image_root = '/15324359926/Multimodal/hm_repo/CC3M/val'
+        self.llava_depth_root = '/path_to_your_data/LLaVA_Depth/val'
+        self.llava_image_root = '/path_to_your_data/LLaVA_Split/val'
+        self.cc3m_depth_root = '/path_to_your_data/CC3M_Depth/val'
+        self.cc3m_image_root = '/path_to_your_data/CC3M/val'
         print('val self.image_root:{} and {}'.format(self.llava_image_root, self.cc3m_image_root))
         print('val self.depth_root:{} and {}'.format(self.llava_depth_root, self.cc3m_depth_root))
         
@@ -588,25 +523,6 @@ class DepthCaptionandQAInstructValDataset_In_Domain(DepthQADataset):
             image_id = ann['image_id']
             question = ann['question'].replace('<image>', '').replace('\n','')
             answer = ann['caption']
-            # if len(conversations) > 3:
-            #     question_list = []
-            #     answer_list = []
-            #     qa_list = []
-            #     for conv in conversations:
-            #         if conv['from'] == 'human':
-            #             question_list.append(conv['value'].replace('<image>', '').replace('\n',''))
-            #         else:
-            #             answer_list.append(conv['value'])
-                
-            #     for idx, question in enumerate(question_list):
-            #         qa_list.append({'question':question_list[idx], 'answer':answer_list[idx]})
-                    
-            #     conversation = random.choice(qa_list)
-            #     question = conversation['question']
-            #     answer = conversation['answer']
-            # else:
-            #     question = conversations[0]['value']
-            #     answer = conversations[1]['value']
             
             rgb_path = os.path.join(self.llava_image_root, image_id)
             depth_path = os.path.join(self.llava_depth_root, image_id.replace('.jpg', '.png'))

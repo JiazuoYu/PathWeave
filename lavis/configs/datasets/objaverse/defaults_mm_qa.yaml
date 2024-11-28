@@ -39,17 +39,17 @@ datasets:
             - https://storage.googleapis.com/sfr-xinstructblip-data-research/data/objaverse/CAP3DQA_final.csv
             # - /export/home/LAVIS-xgen_mm/projects/xinstructblip/data_aug/3d_qa_data/CAP3DQA_final.csv
           storage: 
-            - /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final.csv
+            - /data/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final.csv
             # - /export/home/LAVIS-xgen_mm/projects/xinstructblip/data_aug/3d_qa_data/CAP3DQA_final.csv
 #        val:
 #          url:
 #            - https://storage.googleapis.com/sfr-xinstructblip-data-research/data/objaverse/CAP3DQA_final_val.csv
-##            - /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
+##            - /data/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
 #          storage:
-#            - /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
-##            - /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
+#            - /data/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
+##            - /data/Multimodal/datasets_multimodal/3D/Cap3D/pc/annotations/CAP3DQA_final_val.csv
 
       templates: null
 
       pc:
-        storage: /15324359926/Multimodal/datasets_multimodal/3D/Cap3D/objaverse_pc_parallel/pc_data
+        storage: /data/Multimodal/datasets_multimodal/3D/Cap3D/objaverse_pc_parallel/pc_data

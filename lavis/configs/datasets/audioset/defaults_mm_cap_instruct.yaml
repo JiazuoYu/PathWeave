@@ -32,9 +32,9 @@ datasets:
 #            - /export/home/LAVIS-xgen_mm/lavis/configs/datasets/audioset/balanced_train_clean.csv
              - http://storage.googleapis.com/us_audioset/youtube_corpus/v1/csv/class_labels_indices.csv
           storage:
-            - /15324359926/Multimodal/datasets_multimodal/audiocaps/annotations/balanced_train_clean.csv
+            - /path_to_your_data/audiocaps/annotations/balanced_train_clean.csv
             # - /export/home/LAVIS-xgen_mm/lavis/configs/datasets/audioset/balanced_train_clean.csv
-            - /15324359926/Multimodal/datasets_multimodal/audiocaps/annotations/class_labels_indices.csv
+            - /path_to_your_data/audiocaps/annotations/class_labels_indices.csv
              
         # val:
         #   url: 
@@ -45,4 +45,4 @@ datasets:
         #     - audioset/annotations/class_labels_indices.csv
         
       audio:
-        storage: /15324359926/yjz/Audioset/Audioset/audioset/
+        storage: /path_to_your_data/Audioset/Audioset/audioset/

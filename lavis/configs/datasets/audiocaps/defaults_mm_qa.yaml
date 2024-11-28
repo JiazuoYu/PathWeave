@@ -48,4 +48,4 @@ datasets:
         #     - /export/home/LAVIS-xgen_mm/projects/xinstructblip/data_aug/audio_qa_data/audio_qa_final_val.csv
 
       audio:
-        storage: /15324359926/yjz/audiocaps/audiocaps/rename_train
+        storage: /path_to_your_data/audiocaps/audiocaps/rename_train

@@ -23,7 +23,7 @@ model:
   pretrained_image_qformer:
   pretrained_pc_qformer:
   pretrained_video_qformer:
-  pretrained_audio_qformer: /15324359926/Multimodal/01_Fixed_Lavis/LAVIS/lavis/output/xinstructblip/train/vicuna7b/3D/audio_original/checkpoint_65000.pth
+  pretrained_audio_qformer: /path_to_your_data/checkpoint_65000.pth
   load_attention_image_qformer: True
   load_attention_pc_qformer: True
   load_attention_video_qformer: True
@@ -57,7 +57,7 @@ model:
   freeze_video: True
   freeze_audio: True
   num_query_token: 32
-  llm_model: /15324359926/Multimodal/vicuna7B_v1.1_ckpt/vicuna-7b-v1.1
+  llm_model: /path_to_your_data/vicuna-7b-v1.1
   prompt: "Question: {} Answer:"
   max_txt_len: 128
   max_output_txt_len: 256
