@@ -63,7 +63,7 @@ Our depth data are generated follow the instruction of [OneLLM](https://github.c
 
 
 ### Model-ckpt
-All checkpoints can be found in [Google Driver]((https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link)).
+All checkpoints can be found in [Google Driver](https://drive.google.com/drive/folders/1a5E4DBzTtq8cKr8oGLQUtWLwc2caVX4c?usp=drive_link).
 
 ### Test
 <details>
